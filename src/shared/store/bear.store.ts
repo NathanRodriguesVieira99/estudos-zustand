@@ -1,11 +1,18 @@
 import { create } from "zustand";
 
-// estados e métodos da Store
-interface BearStore {
+// estados da Store
+interface BearStoreStates {
   bears: number;
   food: string;
+}
+
+// métodos da Store
+interface BearStoreActions {
   feed: (food: string) => void;
 }
+
+// Tipagem com união entre estados e métodos da Store
+type BearStore = BearStoreStates & BearStoreActions;
 
 export const useBearStore = create<BearStore>()((set) => ({
   bears: 2, // estado inicial
