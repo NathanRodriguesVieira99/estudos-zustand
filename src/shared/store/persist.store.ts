@@ -7,11 +7,16 @@ interface User {
   avatar?: string;
 }
 
-interface PersistStore {
+interface PersistStoreStates {
   user: User | null; // usuário pode existir ou não
+}
+
+interface PersistStoreActions {
   login: (user: User) => void;
   logout: () => void;
 }
+
+type PersistStore = PersistStoreStates & PersistStoreActions;
 
 export const usePersistStore = create<PersistStore>()(
   persist(
