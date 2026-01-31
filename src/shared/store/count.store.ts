@@ -1,19 +1,19 @@
 import { create } from "zustand";
 
 // Tipagem para a store com estados iniciais
-interface CountStoreStates {
+interface State {
   count: number;
 }
 
 // Tipagem para a store com métodos
-interface CountStoreActions {
+interface Actions {
   increment: () => void;
   decrement: () => void;
   reset: () => void;
 }
 
 // União dos tipos da store
-type CountStore = CountStoreStates & CountStoreActions;
+type CountStore = State & Actions;
 
 // set -> é a função que atualiza o estado da store
 export const useCountStore = create<CountStore>()((set) => ({
